@@ -2,7 +2,7 @@ import { getUser } from "../data/api";
 import { useEffect, useState } from "react";
 
 const UserInfo = ({ username }) => {
-    const [currentUser, setCurrentUser] = useState(null);
+    const [user, setUser] = useState(null);
     // console.log("username", username);
 
     useEffect(() => {
@@ -10,21 +10,21 @@ const UserInfo = ({ username }) => {
         getUser(username)
             .then((result) => {
                 // console.log("fetched user", result.user);
-                setCurrentUser(result.user);
+                setUser(result.user);
             })
             .catch((err) => {
                 console.log("failed to fetch user: ", err);
             });
     }, []);
-    console.log("current user:", currentUser);
+    console.log("current user:", user);
 
     return (
         <div className="user-info">
-            {currentUser && (
+            {user && (
                 <img
                     className="user-avatar"
                     alt="user avatar"
-                    src={currentUser.avatar_url}
+                    src={user.avatar_url}
                 />
             )}
             <p>{username}</p>
