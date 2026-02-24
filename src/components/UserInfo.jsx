@@ -3,14 +3,13 @@ import { useEffect, useState } from "react";
 
 const UserInfo = ({ username }) => {
     const [currentUser, setCurrentUser] = useState(null);
-
-    console.log("username", username);
+    // console.log("username", username);
 
     useEffect(() => {
         console.log("fetching");
         getUser(username)
             .then((result) => {
-                console.log("fetched user", result.user);
+                // console.log("fetched user", result.user);
                 setCurrentUser(result.user);
             })
             .catch((err) => {

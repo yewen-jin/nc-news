@@ -13,7 +13,7 @@ export async function getUser(username) {
             return response.json();
         })
         .then((body) => {
-            console.log("fetched body:", body);
+            // console.log("fetched body:", body);
             return body;
         })
         .catch((error) => {

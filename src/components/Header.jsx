@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <section className="header">
             <h1>NC NEWS </h1>
-            {console.log(USERNAME)}
             <UserInfo username={USERNAME} />
         </section>
     );
