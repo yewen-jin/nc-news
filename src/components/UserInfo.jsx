@@ -3,21 +3,32 @@ import { useEffect, useState } from "react";
 
 const UserInfo = ({ username }) => {
     const [currentUser, setCurrentUser] = useState(null);
+
     console.log("username", username);
 
     useEffect(() => {
         console.log("fetching");
-        getUser(username).then((user) => {
-            console.log("fetched user", user);
-            setCurrentUser(user);
-            console.log(currentUser);
-        });
+        getUser(username)
+            .then((result) => {
+                console.log("fetched user", result.user);
+                setCurrentUser(result.user);
+            })
+            .catch((err) => {
+                console.log("failed to fetch user: ", err);
+            });
     }, []);
+    console.log("current user:", currentUser);
 
     return (
         <div className="user-info">
+            {currentUser && (
+                <img
+                    className="user-avatar"
+                    alt="user avatar"
+                    src={currentUser.avatar_url}
+                />
+            )}
             <p>{username}</p>
-            {currentUser && <img src={currentUser.avatar_url} />}
         </div>
     );
 };

@@ -7,9 +7,17 @@
     background-color: darkolivegreen;
     color: ghostwhite;
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 h1.header {
     line-height: 1;
-    margin: 0px;
+    margin: 20px;
+}
+
+.user-avatar {
+    max-width: 80px;
+    max-height: 80px;
 }
