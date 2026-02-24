@@ -31,3 +31,7 @@ h1.header {
     justify-content: space-around;
     background-color: slategray;
 }
+
+.nav-items {
+    height: 100px;
+}
