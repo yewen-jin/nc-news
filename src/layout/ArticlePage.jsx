@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getArticleById } from "../data/api";
 import NavBar from "../components/NavBar";
+import ArticleDisplay from "../components/ArticleDisplay";
+import Interactions from "../components/Interactions";
 
 const ArticlePage = () => {
     const articleId = useParams().article_id;
@@ -29,6 +31,8 @@ const ArticlePage = () => {
                 <p>Articles</p>
                 <p>Topics</p>
             </NavBar>
+            <ArticleDisplay />
+            <Interactions />
         </>
     );
 };

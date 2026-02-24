@@ -1,5 +1,13 @@
+import Comments from "./Comments";
+import Voting from "./Voting";
+
 const Interactions = () => {
-    return <></>;
+    return (
+        <>
+            <Voting />
+            <Comments />
+        </>
+    );
 };
 
 export default Interactions;
