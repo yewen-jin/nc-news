@@ -12,7 +12,7 @@ const Articles = () => {
         console.log("loading articles");
         getArticles()
             .then(({ articles }) => {
-                console.log(articles);
+                // console.log(articles);
                 setArticles(articles);
             })
             .catch((err) => {

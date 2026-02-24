@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Home from "./layout/Home";
 import Topics from "./layout/Topics";
 import User from "./layout/User";
-import ArticleDisplay from "./layout/ArticleDisplay";
+import ArticlePage from "./layout/ArticlePage";
 
 function App() {
     return (
@@ -14,10 +14,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/topics" element={<Topics />} />
                 <Route path="/articles" element={<Home />} />
-                <Route
-                    path="/articles/:article_id"
-                    element={<ArticleDisplay />}
-                />
+                <Route path="/articles/:article_id" element={<ArticlePage />} />
                 <Route path="/users/:username" element={<User />} />
             </Routes>
         </>

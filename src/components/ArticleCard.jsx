@@ -5,7 +5,7 @@ const ArticleCard = ({ article }) => {
     const date =
         publishedDate[2] + "/" + publishedDate[1] + "/" + publishedDate[0];
     const time = publishedTime[0].slice(0, -3);
-    console.log(publishedDate, publishedTime, date, time);
+
     return (
         <section className="article-card">
             <h3>{article.title}</h3>
