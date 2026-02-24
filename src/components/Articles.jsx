@@ -8,8 +8,8 @@ const Articles = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        setIsLoading(true);
         console.log("loading articles");
+        setIsLoading(true);
         getArticles()
             .then(({ articles }) => {
                 // console.log(articles);

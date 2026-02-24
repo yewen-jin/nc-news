@@ -23,9 +23,9 @@ const ArticlePage = () => {
             .finally(() => {
                 setIsLoading(false);
             });
-    }, []);
+    }, [articleId]);
 
-    console.log("the article:", article);
+    // console.log("the article:", article);
 
     return (
         <>
@@ -33,8 +33,9 @@ const ArticlePage = () => {
                 <p>Articles</p>
                 <p>Topics</p>
             </NavBar>
+            {isLoading && <p>Loading Article...</p>}
             {article && <ArticleDisplay article={article} />}
-            <Interactions />
+            {article && <Interactions article={article} />}
         </>
     );
 };
