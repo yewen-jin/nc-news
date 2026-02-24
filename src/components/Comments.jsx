@@ -1,3 +1,4 @@
+import Interactions from "./Interactions";
 const Comments = () => {
     return <></>;
 };

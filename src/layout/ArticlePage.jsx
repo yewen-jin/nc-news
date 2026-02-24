@@ -7,7 +7,7 @@ import Interactions from "../components/Interactions";
 
 const ArticlePage = () => {
     const articleId = useParams().article_id;
-    // console.log(articleId);
+    const [article, setArticle] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const ArticlePage = () => {
         setIsLoading(true);
         getArticleById(articleId)
             .then(({ article }) => {
-                console.log(article);
+                setArticle(article);
             })
             .catch((err) => {
                 console.log(err);
@@ -25,13 +25,15 @@ const ArticlePage = () => {
             });
     }, []);
 
+    console.log("the article:", article);
+
     return (
         <>
             <NavBar destination={["/", "/topics"]}>
                 <p>Articles</p>
                 <p>Topics</p>
             </NavBar>
-            <ArticleDisplay />
+            {article && <ArticleDisplay article={article} />}
             <Interactions />
         </>
     );
