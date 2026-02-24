@@ -43,3 +43,7 @@ h1.header {
     border: dotted 3px darkslategray;
     background-color: var(--main-bg-color);
 }
+
+.article-img-preview {
+    max-width: 350px;
+}
