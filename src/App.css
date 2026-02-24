@@ -1,4 +1,7 @@
 #root {
+    --main-bg-color: orange;
+    --secondary-bg-color: slategray;
+    --header-bg-color: darkolivegreen;
     margin: 0px;
     padding: 0px;
     font-family: monospace;
@@ -7,7 +10,7 @@
 }
 
 .header {
-    background-color: darkolivegreen;
+    background-color: var(--header-bg-color);
     color: ghostwhite;
     padding: 30px;
     display: flex;
@@ -29,9 +32,14 @@ h1.header {
     display: flex;
     padding: 10px;
     justify-content: space-around;
-    background-color: slategray;
+    background-color: var(--secondary-bg-color);
 }
 
 .nav-items {
     height: 100px;
+}
+
+.article-card {
+    border: dotted 3px darkslategray;
+    background-color: var(--main-bg-color);
 }
