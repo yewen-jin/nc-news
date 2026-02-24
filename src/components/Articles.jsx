@@ -17,11 +17,15 @@ const Articles = () => {
             })
             .catch((err) => {
                 console.log("error message: ", err);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     }, []);
 
     return (
         <section className="articles">
+            {isLoading && <p>Loading...</p>}
             {articles.length !== 0 &&
                 articles.map((article) => {
                     return (
