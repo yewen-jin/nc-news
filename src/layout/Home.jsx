@@ -1,4 +1,5 @@
 import NavBar from "../components/NavBar";
+import Articles from "../components/Articles";
 
 const Home = () => {
     return (
@@ -7,6 +8,7 @@ const Home = () => {
                 <p>Articles</p>
                 <p>Topics</p>
             </NavBar>
+            <Articles />
         </>
     );
 };
