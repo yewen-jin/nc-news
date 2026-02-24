@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./layout/Home";
 import Topics from "./layout/Topics";
 import User from "./layout/User";
+import ArticleDisplay from "./layout/ArticleDisplay";
 
 function App() {
     return (
@@ -11,9 +12,13 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/articles" element={<Home />} />
                 <Route path="/topics" element={<Topics />} />
-                {/* <Route path="/users/:username" element={<User />} />*/}
+                <Route path="/articles" element={<Home />} />
+                <Route
+                    path="/articles/:article_id"
+                    element={<ArticleDisplay />}
+                />
+                <Route path="/users/:username" element={<User />} />
             </Routes>
         </>
     );

@@ -9,10 +9,14 @@ const Articles = () => {
     useEffect(() => {
         setIsLoading(true);
         console.log("loading articles");
-        getArticles().then(({ articles }) => {
-            console.log(articles);
-            setArticles(articles);
-        });
+        getArticles()
+            .then(({ articles }) => {
+                console.log(articles);
+                setArticles(articles);
+            })
+            .catch((err) => {
+                console.log("error message: ", err);
+            });
     }, []);
 
     return (
@@ -20,7 +24,10 @@ const Articles = () => {
             {articles.length !== 0 &&
                 articles.map((article) => {
                     return (
-                        <Link key={article.article_id} to="/">
+                        <Link
+                            key={article.article_id}
+                            to={"/articles/" + article.article_id}
+                        >
                             <h3> {article.title}</h3>
                         </Link>
                     );
