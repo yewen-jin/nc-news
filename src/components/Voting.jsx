@@ -6,40 +6,41 @@ import { downvote } from "../data/api";
 
 const Voting = ({ article }) => {
     const { article_id, votes } = article;
+    const [voteChange, setVoteChange] = useState(0);
     // console.log(votes, article_id);
 
     //you should be able to upvote or downvote only once
     useEffect(() => {}, []);
     return (
-        <>
+        <section className="interaction">
             <button
-                className="vote-boxes"
+                className="interaction-boxes"
                 onClick={() => {
                     downvote("articles", article_id);
                 }}
             >
                 <img
-                    className="vote-icons"
+                    className="interaction-icons"
                     alt="downvote icon"
                     src={downvoteIcon}
                 />
             </button>
-            <div className="vote-boxes">
+            <div className="interaction-boxes">
                 <p> {votes}</p>
             </div>
             <button
-                className="vote-boxes"
+                className="interaction-boxes"
                 onClick={() => {
                     upvote("articles", article_id);
                 }}
             >
                 <img
-                    className="vote-icons"
+                    className="interaction-icons"
                     alt="upvote icon"
                     src={upvoteIcon}
                 />
             </button>
-        </>
+        </section>
     );
 };
 
