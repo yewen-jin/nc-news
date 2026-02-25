@@ -8,24 +8,37 @@ const Voting = ({ article }) => {
     const { article_id, votes } = article;
     // console.log(votes, article_id);
 
+    //you should be able to upvote or downvote only once
     useEffect(() => {}, []);
     return (
         <>
             <button
+                className="vote-boxes"
                 onClick={() => {
                     downvote("articles", article_id);
                 }}
             >
-                <img alt="downvote icon" src={downvoteIcon} />
+                <img
+                    className="vote-icons"
+                    alt="downvote icon"
+                    src={downvoteIcon}
+                />
             </button>
+            <div className="vote-boxes">
+                <p> {votes}</p>
+            </div>
             <button
+                className="vote-boxes"
                 onClick={() => {
                     upvote("articles", article_id);
                 }}
             >
-                <img alt="upvote icon" src={upvoteIcon} />
+                <img
+                    className="vote-icons"
+                    alt="upvote icon"
+                    src={upvoteIcon}
+                />
             </button>
-            <p>votes: {votes}</p>
         </>
     );
 };
