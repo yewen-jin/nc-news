@@ -42,6 +42,8 @@ h1.header {
 .article-card {
     border: dotted 3px darkslategray;
     background-color: var(--main-bg-color);
+    margin: 10px;
+    padding: 10px;
 }
 
 .article-img-preview {
@@ -54,8 +56,9 @@ h1.header {
 
 .article {
     border: dotted 3px darkslategray;
-    margin: 10px;
     background-color: var(--main-bg-color);
+    margin: 10px;
+    padding: 10px;
 }
 
 .article-details {
@@ -87,4 +90,8 @@ h1.header {
 
 .interaction-icons {
     width: 30px;
+}
+
+.comment-section {
+    margin: 10px;
 }

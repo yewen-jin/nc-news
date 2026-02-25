@@ -1,7 +1,8 @@
 import commentsIcon from "../assets/comments.svg";
 import { useState, useEffect } from "react";
 
-const CommentsControl = ({ article }) => {
+const CommentsControl = ({ article, commentState }) => {
+    const { isCommentOn, setIsCommentOn } = commentState;
     return (
         <>
             <section className="interaction">
