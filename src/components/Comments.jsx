@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCommentsByArticle } from "../data/api";
+import CommentCard from "./CommentCard";
 
 const Comments = ({ article, isCommentOn }) => {
     const { article_id } = article;
@@ -14,9 +15,8 @@ const Comments = ({ article, isCommentOn }) => {
     }, [article_id, isCommentOn]);
     return (
         <section className="comment-section">
-            <p>This is where the comments are</p>
             {comments.map((comment) => {
-                return <p>{comment.body}</p>;
+                return <CommentCard comment={comment} />;
             })}
         </section>
     );

@@ -93,5 +93,12 @@ h1.header {
 }
 
 .comment-section {
+    border: dotted 3px darkslategray;
     margin: 10px;
+}
+
+.comment-card {
+    border: dotted 3px darkslategray;
+    background-color: var(--main-bg-color);
+    padding: 10px;
 }
