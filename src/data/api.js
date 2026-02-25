@@ -102,7 +102,7 @@ export async function postComment(articleId, username, body) {
             console.log("Fetch Error from: ", url, error.message);
         });
 }
-export async function upvote(type, id, voteChange) {
+export async function changeVote(type, id, voteChange) {
     // const url = host + "/api/comments/" + commentId;
     const url = `${host}/api/${type}/${id}`;
     return fetch(url, {
@@ -111,21 +111,6 @@ export async function upvote(type, id, voteChange) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ inc_votes: voteChange }),
-    })
-        .then((response) => response.json())
-        .catch((error) => {
-            console.log("Fetch Error from: ", url, error.message);
-        });
-}
-
-export async function downvote(type, id) {
-    const url = `${host}/api/${type}/${id}`;
-    return fetch(url, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ inc_votes: -1 }),
     })
         .then((response) => response.json())
         .catch((error) => {

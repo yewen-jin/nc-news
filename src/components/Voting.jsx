@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import upvoteIcon from "../assets/upvote.png";
 import downvoteIcon from "../assets/downvote.png";
-import { upvote } from "../data/api";
-import { downvote } from "../data/api";
+import { changeVote } from "../data/api";
 
 const Voting = (props) => {
     const { type, item } = props;
@@ -16,21 +15,22 @@ const Voting = (props) => {
             : type === "comments"
               ? item.comment_id
               : null;
-    console.log(type, id);
+    console.log(type, id, voteChange);
 
     return (
         <section className="interaction">
             <button
                 className="interaction-boxes"
                 onClick={() => {
-                    if (voteChange !== -1) {
+                    if (voteChange === 0) {
                         setVoteChange(-1);
-                        downvote(type, id, voteChange);
-                        console.log(`down 1`);
-                    } else {
+                        changeVote(type, id, -1);
+                    } else if (voteChange === -1) {
                         setVoteChange(0);
-                        upvote(type, id, voteChange);
-                        console.log(`up 1`);
+                        changeVote(type, id, 1);
+                    } else if (voteChange === 1) {
+                        setVoteChange(-1);
+                        changeVote(type, id, -2);
                     }
                 }}
             >
@@ -46,14 +46,15 @@ const Voting = (props) => {
             <button
                 className="interaction-boxes"
                 onClick={() => {
-                    if (voteChange !== 1) {
+                    if (voteChange === 0) {
                         setVoteChange(1);
-                        upvote(type, id, voteChange);
-                        console.log(`up 1`);
-                    } else {
+                        changeVote(type, id, 1);
+                    } else if (voteChange === 1) {
                         setVoteChange(0);
-                        downvote(type, id, voteChange);
-                        console.log(`down 1`);
+                        changeVote(type, id, -1);
+                    } else if (voteChange === -1) {
+                        setVoteChange(1);
+                        changeVote(type, id, 2);
                     }
                 }}
             >
