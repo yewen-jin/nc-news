@@ -68,7 +68,7 @@ h1.header {
     align-items: flex-start;
 }
 
-.article-interactions {
+.interactions-bar {
     margin: 10px;
     display: flex;
     flex-direction: row;

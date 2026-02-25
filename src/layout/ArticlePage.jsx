@@ -38,9 +38,11 @@ const ArticlePage = () => {
                 <p>Topics</p>
             </NavBar>
             {isLoading && <p>Loading Article...</p>}
+
             {article && <ArticleDisplay article={article} />}
             {article && (
                 <Interactions
+                    type="articles"
                     article={article}
                     commentState={{ isAddCommentOn, setIsAddCommentOn }}
                 />

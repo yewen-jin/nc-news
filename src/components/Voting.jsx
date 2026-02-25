@@ -4,13 +4,20 @@ import downvoteIcon from "../assets/downvote.png";
 import { upvote } from "../data/api";
 import { downvote } from "../data/api";
 
-const Voting = ({ article }) => {
-    const { article_id, votes } = article;
-    const [voteChange, setVoteChange] = useState(0);
-    // console.log(votes, article_id);
+const Voting = (props) => {
+    const { type, item } = props;
+    const { votes } = item;
 
-    //you should be able to upvote or downvote only once
-    useEffect(() => {}, []);
+    const [voteChange, setVoteChange] = useState(0);
+
+    const id =
+        type === "articles"
+            ? item.article_id
+            : type === "comments"
+              ? item.comment_id
+              : null;
+    console.log(type, id);
+
     return (
         <section className="interaction">
             <button
@@ -18,10 +25,13 @@ const Voting = ({ article }) => {
                 onClick={() => {
                     if (voteChange !== -1) {
                         setVoteChange(-1);
+                        downvote(type, id, voteChange);
+                        console.log(`down 1`);
                     } else {
                         setVoteChange(0);
+                        upvote(type, id, voteChange);
+                        console.log(`up 1`);
                     }
-                    downvote("articles", article_id);
                 }}
             >
                 <img
@@ -38,10 +48,13 @@ const Voting = ({ article }) => {
                 onClick={() => {
                     if (voteChange !== 1) {
                         setVoteChange(1);
+                        upvote(type, id, voteChange);
+                        console.log(`up 1`);
                     } else {
                         setVoteChange(0);
+                        downvote(type, id, voteChange);
+                        console.log(`down 1`);
                     }
-                    upvote("articles", article_id);
                 }}
             >
                 <img

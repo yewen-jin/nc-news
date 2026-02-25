@@ -102,7 +102,7 @@ export async function postComment(articleId, username, body) {
             console.log("Fetch Error from: ", url, error.message);
         });
 }
-export async function upvote(type, id) {
+export async function upvote(type, id, voteChange) {
     // const url = host + "/api/comments/" + commentId;
     const url = `${host}/api/${type}/${id}`;
     return fetch(url, {
@@ -110,7 +110,7 @@ export async function upvote(type, id) {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ inc_votes: 1 }),
+        body: JSON.stringify({ inc_votes: voteChange }),
     })
         .then((response) => response.json())
         .catch((error) => {
