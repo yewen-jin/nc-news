@@ -16,6 +16,11 @@ const Voting = ({ article }) => {
             <button
                 className="interaction-boxes"
                 onClick={() => {
+                    if (voteChange !== -1) {
+                        setVoteChange(-1);
+                    } else {
+                        setVoteChange(0);
+                    }
                     downvote("articles", article_id);
                 }}
             >
@@ -26,11 +31,16 @@ const Voting = ({ article }) => {
                 />
             </button>
             <div className="interaction-boxes">
-                <p> {votes}</p>
+                <p> {votes + voteChange}</p>
             </div>
             <button
                 className="interaction-boxes"
                 onClick={() => {
+                    if (voteChange !== 1) {
+                        setVoteChange(1);
+                    } else {
+                        setVoteChange(0);
+                    }
                     upvote("articles", article_id);
                 }}
             >
