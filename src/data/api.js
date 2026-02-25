@@ -86,6 +86,22 @@ export async function getCommentsByArticle(articleId) {
         });
 }
 
+export async function postComment(articleId, username, body) {
+    const url = host + "/api/articles/" + articleId + "/comments";
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, body }),
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .catch((error) => {
+            console.log("Fetch Error from: ", url, error.message);
+        });
+}
 export async function upvote(type, id) {
     // const url = host + "/api/comments/" + commentId;
     const url = `${host}/api/${type}/${id}`;

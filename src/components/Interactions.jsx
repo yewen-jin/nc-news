@@ -1,4 +1,4 @@
-import Comments from "./Comments";
+import CommentsControl from "./CommentsControl";
 import Voting from "./Voting";
 
 const Interactions = ({ article }) => {
@@ -6,7 +6,7 @@ const Interactions = ({ article }) => {
     return (
         <section className="article-interactions">
             <Voting article={article} />
-            <Comments article={article} />
+            <CommentsControl article={article} />
         </section>
     );
 };

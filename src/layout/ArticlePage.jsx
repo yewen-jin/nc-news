@@ -9,6 +9,7 @@ const ArticlePage = () => {
     const articleId = useParams().article_id;
     const [article, setArticle] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isCommentOn, setIsCommentOn] = useState(false);
 
     useEffect(() => {
         console.log("loading article...");
@@ -36,6 +37,9 @@ const ArticlePage = () => {
             {isLoading && <p>Loading Article...</p>}
             {article && <ArticleDisplay article={article} />}
             {article && <Interactions article={article} />}
+            {isCommentOn && (
+                <Comments commentState={{ isCommentOn, setIsCommentOn }} />
+            )}
         </>
     );
 };
