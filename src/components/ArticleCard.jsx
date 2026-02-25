@@ -6,7 +6,7 @@ const ArticleCard = ({ article }) => {
 
     return (
         <section className="article-card">
-            <h3>{article.title}</h3>
+            <h3 className="text-title">{article.title}</h3>
             <img
                 alt="article image"
                 src={article.article_img_url}
@@ -14,7 +14,7 @@ const ArticleCard = ({ article }) => {
             />
             <p>{"Author:" + article.author}</p>
             <p>{"Topic:" + article.topic}</p>
-            <p>{"Published:" + date + " " + time}</p>
+            <p className="date-time">{"Published:" + date + " " + time}</p>
             <p>{"Votes:" + article.votes}</p>
             <p>{"Comments:" + article.comment_count}</p>
         </section>
