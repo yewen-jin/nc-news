@@ -1,10 +1,8 @@
+import { formatDate, formatTime } from "../data/utils";
+
 const ArticleCard = ({ article }) => {
-    // console.log(article);
-    const publishedDate = article.created_at.split("T")[0].split("-");
-    const publishedTime = article.created_at.split("T")[1].split(".");
-    const date =
-        publishedDate[2] + "/" + publishedDate[1] + "/" + publishedDate[0];
-    const time = publishedTime[0].slice(0, -3);
+    const date = formatDate(article.created_at);
+    const time = formatTime(article.created_at);
 
     return (
         <section className="article-card">
