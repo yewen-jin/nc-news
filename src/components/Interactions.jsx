@@ -1,11 +1,12 @@
 import Comments from "./Comments";
 import Voting from "./Voting";
 
-const Interactions = () => {
+const Interactions = ({ article }) => {
+    console.log(article);
     return (
         <section className="article-interactions">
-            <Voting />
-            <Comments />
+            <Voting article={article} />
+            <Comments article={article} />
         </section>
     );
 };

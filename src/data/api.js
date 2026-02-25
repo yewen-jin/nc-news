@@ -86,8 +86,9 @@ export async function getCommentsByArticle(articleId) {
         });
 }
 
-export async function upvote(commentId) {
-    const url = host + "/api/comments/" + commentId;
+export async function upvote(type, id) {
+    // const url = host + "/api/comments/" + commentId;
+    const url = `${host}/api/${type}/${id}`;
     return fetch(url, {
         method: "PATCH",
         headers: {
@@ -101,8 +102,8 @@ export async function upvote(commentId) {
         });
 }
 
-export async function downvote(commentId) {
-    const url = host + "/api/comments/" + commentId;
+export async function downvote(type, id) {
+    const url = `${host}/api/${type}/${id}`;
     return fetch(url, {
         method: "PATCH",
         headers: {

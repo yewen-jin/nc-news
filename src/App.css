@@ -48,6 +48,10 @@ h1.header {
     max-width: 350px;
 }
 
+.article-img {
+    max-width: -webkit-fill-available;
+}
+
 .article {
     border: dotted 3px darkslategray;
     margin: 10px;
