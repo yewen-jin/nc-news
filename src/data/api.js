@@ -1,5 +1,7 @@
+const host = "https://nc-news-backend-91qy.onrender.com";
+
 export async function getTopics() {
-    const url = "https://nc-news-backend-91qy.onrender.com/api/topics";
+    const url = host + "/api/topics";
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
@@ -17,8 +19,7 @@ export async function getTopics() {
 }
 
 export async function getUser(username) {
-    const url =
-        "https://nc-news-backend-91qy.onrender.com/api/users/" + username;
+    const url = host + "/api/users/" + username;
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
@@ -54,8 +55,7 @@ export async function getArticles() {
 }
 
 export async function getArticleById(articleId) {
-    const url =
-        "https://nc-news-backend-91qy.onrender.com/api/articles/" + articleId;
+    const url = host + "/api/articles/" + articleId;
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
@@ -73,10 +73,7 @@ export async function getArticleById(articleId) {
 }
 
 export async function getCommentsByArticle(articleId) {
-    const url =
-        "https://nc-news-backend-91qy.onrender.com/api/articles/" +
-        articleId +
-        "/comments";
+    const url = host + "/api/articles/" + articleId + "/comments";
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
@@ -90,8 +87,7 @@ export async function getCommentsByArticle(articleId) {
 }
 
 export async function upvote(commentId) {
-    const url =
-        "https://nc-news-backend-91qy.onrender.com/api/comments/" + commentId;
+    const url = host + "/api/comments/" + commentId;
     return fetch(url, {
         method: "PATCH",
         headers: {
@@ -106,8 +102,7 @@ export async function upvote(commentId) {
 }
 
 export async function downvote(commentId) {
-    const url =
-        "https://nc-news-backend-91qy.onrender.com/api/comments/" + commentId;
+    const url = host + "/api/comments/" + commentId;
     return fetch(url, {
         method: "PATCH",
         headers: {
