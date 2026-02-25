@@ -13,12 +13,12 @@ const Interactions = ({ type, article, commentState, comment }) => {
                 />
             </section>
         );
-        // } else if (type === "comments") {
-        //     return (
-        //         <section className="interactions-bar">
-        //             {/* <Voting type={type} item={comment} />*/}
-        //         </section>
-        //     );
+    } else if (type === "comments") {
+        return (
+            <section className="interactions-bar">
+                <Voting type={type} item={comment} />
+            </section>
+        );
     }
 };
 
