@@ -5,13 +5,14 @@ import NavBar from "../components/NavBar";
 import ArticleDisplay from "../components/ArticleDisplay";
 import Interactions from "../components/Interactions";
 import Comments from "../components/Comments";
+import AddComment from "../components/AddComment";
 
 const ArticlePage = () => {
     const articleId = useParams().article_id;
     const [article, setArticle] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [isCommentOn, setIsCommentOn] = useState(false);
-    console.log(isCommentOn);
+    const [isAddCommentOn, setIsAddCommentOn] = useState(false);
+    console.log(isAddCommentOn);
 
     useEffect(() => {
         console.log("loading article...");
@@ -41,12 +42,13 @@ const ArticlePage = () => {
             {article && (
                 <Interactions
                     article={article}
-                    commentState={{ isCommentOn, setIsCommentOn }}
+                    commentState={{ isAddCommentOn, setIsAddCommentOn }}
                 />
             )}
-            {isCommentOn && (
-                <Comments article={article} isCommentOn={isCommentOn} />
+            {isAddCommentOn && (
+                <AddComment article={article} isAddCommentOn={isAddCommentOn} />
             )}
+            {article && <Comments article={article} />}
         </>
     );
 };

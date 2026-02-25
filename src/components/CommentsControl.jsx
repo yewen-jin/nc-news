@@ -2,14 +2,14 @@ import commentsIcon from "../assets/comments.svg";
 import { useState, useEffect } from "react";
 
 const CommentsControl = ({ article, commentState }) => {
-    const { isCommentOn, setIsCommentOn } = commentState;
+    const { isAddCommentOn, setIsAddCommentOn } = commentState;
     return (
         <>
             <section className="interaction">
                 <button
                     className="interaction-boxes"
                     onClick={() => {
-                        setIsCommentOn(!isCommentOn);
+                        setIsAddCommentOn(!isAddCommentOn);
                     }}
                 >
                     <img

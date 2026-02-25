@@ -102,3 +102,7 @@ h1.header {
     background-color: var(--main-bg-color);
     padding: 10px;
 }
+
+.add-comment {
+    background-color: var(--secondary-bg-color);
+}
