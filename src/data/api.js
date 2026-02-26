@@ -99,7 +99,23 @@ export async function postComment(articleId, username, body) {
             return response.json();
         })
         .catch((error) => {
-            console.log("Fetch Error from: ", url, error.message);
+            console.log("Post Error from: ", url, error.message);
+        });
+}
+
+export async function deleteComment(commentId) {
+    const url = host + "/api/comments/" + commentId;
+    return fetch(url, {
+        method: "DELETE",
+        // headers: {
+        //     "Content-Type": "application/json",
+        // },
+    })
+        .then((response) => {
+            return response.json();
+        })
+        .catch((error) => {
+            console.log("Delete Error from: ", url, error.message);
         });
 }
 
@@ -115,6 +131,6 @@ export async function changeVote(type, id, voteChange) {
     })
         .then((response) => response.json())
         .catch((error) => {
-            console.log("Fetch Error from: ", url, error.message);
+            console.log("Error from: ", url, error.message);
         });
 }
