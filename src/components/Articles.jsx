@@ -3,8 +3,8 @@ import { getArticles } from "../data/api";
 import useLoadData from "../hooks/useLoadData";
 import ArticleCard from "./ArticleCard";
 
-const Articles = () => {
-    const { data, error, isLoading } = useLoadData(getArticles, []);
+const Articles = ({ topic }) => {
+    const { data, error, isLoading } = useLoadData(getArticles, [], [topic]);
     console.log(data, "<< after use loadData");
 
     return (
