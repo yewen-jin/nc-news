@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import upvoteIcon from "../assets/upvote.png";
 import downvoteIcon from "../assets/downvote.png";
 import { changeVote } from "../data/api";
@@ -15,7 +15,7 @@ const Voting = (props) => {
             : type === "comments"
               ? item.comment_id
               : null;
-    console.log(type, id, voteChange);
+    // console.log(type, id, voteChange);
 
     return (
         <section className="interaction">

@@ -102,6 +102,7 @@ export async function postComment(articleId, username, body) {
             console.log("Fetch Error from: ", url, error.message);
         });
 }
+
 export async function changeVote(type, id, voteChange) {
     // const url = host + "/api/comments/" + commentId;
     const url = `${host}/api/${type}/${id}`;

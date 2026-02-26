@@ -6,7 +6,7 @@ const UserInfo = ({ username }) => {
     // console.log("username", username);
 
     useEffect(() => {
-        console.log("fetching");
+        // console.log("fetching");
         getUser(username)
             .then((result) => {
                 // console.log("fetched user", result.user);

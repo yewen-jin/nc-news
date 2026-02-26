@@ -1,7 +1,35 @@
-const AddComment = () => {
+import { useContext } from "react";
+import { UserContext } from "../context/User";
+import { postComment } from "../data/api";
+// import { useEffect } from "react";
+
+const AddComment = ({ article }) => {
+    const username = useContext(UserContext);
+    // console.log("adding comment");
+    // console.log(article.article_id, username);
+
+    const submitComment = (formData) => {
+        // e.preventDefault();
+        console.log(formData);
+        const body = formData.get("body");
+        postComment(article.article_id, username, body)
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {});
+    };
+
     return (
         <section className="add-comment">
             <p>Add comment here</p>
+            <form action={submitComment}>
+                <label htmlFor="comment-body">Add Your Comments:</label>
+                <input type="text" id="comment-body" name="body"></input>
+                <input type="submit"></input>
+            </form>
         </section>
     );
 };

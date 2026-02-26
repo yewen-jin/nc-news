@@ -5,7 +5,7 @@ import UserInfo from "./UserInfo";
 
 const Header = () => {
     const username = useContext(UserContext);
-    console.log(username);
+    console.log("header username", username);
     return (
         <section className="header">
             <h1>NC NEWS </h1>
