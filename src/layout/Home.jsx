@@ -4,7 +4,7 @@ import Articles from "../components/Articles";
 const Home = () => {
     return (
         <>
-            <NavBar destination={["/", "/topics"]}>
+            <NavBar destination={["/articles", "/topics"]}>
                 <p>Articles</p>
                 <p>Topics</p>
             </NavBar>
