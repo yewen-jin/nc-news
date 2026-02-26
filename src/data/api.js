@@ -36,8 +36,10 @@ export async function getUser(username) {
         });
 }
 
-export async function getArticles() {
-    const url = host + "/api/articles";
+export async function getArticles(topic = null) {
+    const url = !topic
+        ? host + "/api/articles"
+        : host + "/api/articles?topic=" + topic;
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
