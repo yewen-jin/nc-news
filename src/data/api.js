@@ -15,6 +15,7 @@ export async function getTopics() {
         })
         .catch((error) => {
             console.log("Fetch Error from: ", url, error.message);
+            return error;
         });
 }
 
@@ -33,6 +34,7 @@ export async function getUser(username) {
         })
         .catch((error) => {
             console.log("Fetch Error from: ", url, error.message);
+            return error;
         });
 }
 
@@ -66,25 +68,25 @@ export async function getArticles({ topic = null, order, sort_by }) {
         })
         .catch((error) => {
             console.log("Fetch Error from: ", url, error.message);
+            return error;
         });
 }
 
 export async function getArticleById(articleId) {
     const url = host + "/api/articles/" + articleId;
-    return fetch(url)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error, Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((body) => {
-            // console.log("fetched body:", body);
-            return body;
-        })
-        .catch((error) => {
-            console.log("Fetch Error from: ", url, error.message);
-        });
+    return fetch(url).then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error, Status: ${response.status}`);
+        }
+        return response.json();
+    });
+    // .then((body) => {
+    //     return body;
+    // });
+    // .catch((error) => {
+    //     console.log("Fetch Error from: ", url, error.message);
+    //     // return error;
+    // });
 }
 
 export async function getCommentsByArticle(articleId) {
@@ -98,6 +100,7 @@ export async function getCommentsByArticle(articleId) {
         })
         .catch((error) => {
             console.log("Fetch Error from: ", url, error.message);
+            return error;
         });
 }
 
@@ -115,6 +118,7 @@ export async function postComment(articleId, username, body) {
         })
         .catch((error) => {
             console.log("Post Error from: ", url, error.message);
+            return error;
         });
 }
 
@@ -132,6 +136,7 @@ export async function deleteComment(commentId) {
         })
         .catch((error) => {
             console.log("Delete Error from: ", url, error.message);
+            return error;
         });
 }
 
@@ -148,5 +153,6 @@ export async function changeVote(type, id, voteChange) {
         .then((response) => response.json())
         .catch((error) => {
             console.log("Error from: ", url, error.message);
+            return error;
         });
 }

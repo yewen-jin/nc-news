@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getArticleById } from "../data/api";
 import NavBar from "../components/NavBar";
 import ArticleDisplay from "../components/ArticleDisplay";
@@ -27,9 +27,35 @@ const ArticlePage = () => {
                 <p>Topics</p>
             </NavBar>
 
-            {isLoading && <p>Loading Article...</p>}
-            {error && <p>{error}</p>}
+            {isLoading && (
+                <section className="loading-message">
+                    <p>Loading Article...</p>
+                </section>
+            )}
+            {error && (
+                <section className="error-message">
+                    <pre>{`
+         #################################
+        #                               #
+        #          404                  #
+         #      article not found!       #
+        #                               #
+       #################################
+                              ####
+                             ######
+                              ####
 
+                           ^ _ ^
+                          ( * * )
+                          ={ - }=
+                            |_|
+
+                            `}</pre>
+                </section>
+            )}
+
+            {console.log(error, "error message", typeof error)}
+            {console.log(data, "data")}
             {data !== null && <ArticleDisplay article={data.article} />}
             {data !== null && (
                 <Interactions
