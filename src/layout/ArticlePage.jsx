@@ -13,7 +13,6 @@ const ArticlePage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [isAddCommentOn, setIsAddCommentOn] = useState(false);
     const [comments, setComments] = useState([]);
-    console.log(isAddCommentOn);
 
     useEffect(() => {
         console.log("loading article...");
@@ -30,14 +29,13 @@ const ArticlePage = () => {
             });
     }, [articleId]);
 
-    // console.log("the article:", article);
-
     return (
         <>
-            <NavBar destination={["/", "/topics"]}>
+            <NavBar destination={["/articles", "/topics"]}>
                 <p>Articles</p>
                 <p>Topics</p>
             </NavBar>
+
             {isLoading && <p>Loading Article...</p>}
 
             {article && <ArticleDisplay article={article} />}
@@ -52,7 +50,6 @@ const ArticlePage = () => {
                 <AddComment
                     article={article}
                     commentState={{ isAddCommentOn, setIsAddCommentOn }}
-                    // isAddCommentOn={isAddCommentOn}
                     commentList={{ comments, setComments }}
                 />
             )}
