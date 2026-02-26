@@ -1,8 +1,13 @@
-import Voting from "../components/Voting";
+import Interactions from "../components/Interactions";
 import { formatDate, formatTime } from "../data/utils";
+import { useContext } from "react";
+import { UserContext } from "../context/User";
+
 const CommentCard = ({ comment }) => {
     const date = formatDate(comment.created_at);
     const time = formatTime(comment.created_at);
+    const username = useContext(UserContext);
+
     return (
         <section className="comment-card">
             <p className="text-title">
@@ -12,7 +17,11 @@ const CommentCard = ({ comment }) => {
             <p className="date-time">
                 Published: {date} {time}
             </p>
-            <Voting type="comments" item={comment} />
+            <Interactions
+                type="comments"
+                comment={comment}
+                isSelf={comment.author === username}
+            />
         </section>
     );
 };
