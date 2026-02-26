@@ -36,10 +36,24 @@ export async function getUser(username) {
         });
 }
 
-export async function getArticles(topic = null) {
-    const url = !topic
-        ? host + "/api/articles"
-        : host + "/api/articles?topic=" + topic;
+export async function getArticles({
+    topic = null,
+    order = "desc",
+    sort_by = "created_at",
+}) {
+    const url =
+        !topic && !order && !sort_by
+            ? host + "/api/articles"
+            : topic !== null
+              ? host +
+                "/api/articles?topic=" +
+                topic +
+                "&sort_by=" +
+                sort_by +
+                "&order=" +
+                order
+              : host + "/api/articles?sort_by=" + sort_by + "&order=" + order;
+
     return fetch(url)
         .then((response) => {
             if (!response.ok) {
