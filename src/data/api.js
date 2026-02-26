@@ -37,7 +37,7 @@ export async function getUser(username) {
 }
 
 export async function getArticles() {
-    const url = "https://nc-news-backend-91qy.onrender.com/api/articles";
+    const url = host + "/api/articles";
     return fetch(url)
         .then((response) => {
             if (!response.ok) {

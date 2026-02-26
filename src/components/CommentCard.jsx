@@ -3,7 +3,7 @@ import { formatDate, formatTime } from "../data/utils";
 import { useContext } from "react";
 import { UserContext } from "../context/User";
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, commentList }) => {
     const date = formatDate(comment.created_at);
     const time = formatTime(comment.created_at);
     const username = useContext(UserContext);
@@ -20,6 +20,7 @@ const CommentCard = ({ comment }) => {
             <Interactions
                 type="comments"
                 comment={comment}
+                commentList={commentList}
                 isSelf={comment.author === username}
             />
         </section>
