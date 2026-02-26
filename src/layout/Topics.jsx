@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import useLoadData from "../hooks/useLoadData";
 import { getTopics } from "../data/api";
@@ -17,9 +18,12 @@ const Topics = () => {
             {data !== null &&
                 data.topics.map((topic) => {
                     return (
-                        <div key={"topic" + topic.slug}>
+                        <Link
+                            to={"/topics/" + topic.slug}
+                            key={"topic" + topic.slug}
+                        >
                             <p>{topic.slug}</p>
-                        </div>
+                        </Link>
                     );
                 })}
         </>
