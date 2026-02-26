@@ -51,7 +51,8 @@ const ArticlePage = () => {
             {isAddCommentOn && (
                 <AddComment
                     article={article}
-                    isAddCommentOn={isAddCommentOn}
+                    commentState={{ isAddCommentOn, setIsAddCommentOn }}
+                    // isAddCommentOn={isAddCommentOn}
                     commentList={{ comments, setComments }}
                 />
             )}
