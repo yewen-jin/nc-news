@@ -12,14 +12,16 @@ const Topics = () => {
                 <p>Topics</p>
             </NavBar>
             <p>Topics:</p>
-            {console.log(data.topics)}
-            {data.topics.map((topic) => {
-                return (
-                    <div key={"topic" + topic.slug}>
-                        <p>{topic.slug}</p>
-                    </div>
-                );
-            })}
+            {isLoading && <p>Loading topics...</p>}
+            {error && <p>{error}</p>}
+            {data !== null &&
+                data.topics.map((topic) => {
+                    return (
+                        <div key={"topic" + topic.slug}>
+                            <p>{topic.slug}</p>
+                        </div>
+                    );
+                })}
         </>
     );
 };
