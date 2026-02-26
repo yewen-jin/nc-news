@@ -4,8 +4,6 @@ import Articles from "../components/Articles";
 
 const ArticlesByTopic = () => {
     const slug = useParams().slug;
-    console.log(slug);
-    // const { data, error, isLoading } = useLoadData(getArticles, [], [slug]);
     return (
         <>
             <NavBar destination={["/articles", "/topics"]}>

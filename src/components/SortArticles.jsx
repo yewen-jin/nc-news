@@ -1,5 +1,12 @@
-const SortArticles = ({ searchParamsState }) => {
-    const { searchParams, setSearchParams } = searchParamsState;
+const SortArticles = ({ setSearchParams }) => {
+    const handleSubmit = (formData) => {
+        console.log(formData.get("sort_by"));
+        // setSearchParams((searchParams) => {
+        //     searchParams.set("sort_by", formData.value);
+        //     console.log(formData);
+        //     return searchParams;
+        // });
+    };
     return (
         <>
             <button
@@ -11,7 +18,8 @@ const SortArticles = ({ searchParamsState }) => {
                 }}
             >
                 Ascend
-            </button>{" "}
+            </button>
+
             <button
                 onClick={() => {
                     setSearchParams((searchParams) => {
@@ -21,8 +29,16 @@ const SortArticles = ({ searchParamsState }) => {
                 }}
             >
                 Descend
-            </button>{" "}
-            <button>order</button>{" "}
+            </button>
+
+            <form action={handleSubmit}>
+                <select id=" " name="sort_by" type="submit">
+                    <option value="created_at">date</option>
+                    <option value="comment_count">comment count</option>
+                    <option value="votes">votes</option>
+                </select>{" "}
+                <input type="submit"></input>
+            </form>
         </>
     );
 };

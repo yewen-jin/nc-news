@@ -21,9 +21,7 @@ const Articles = ({ topic }) => {
 
     return (
         <section className="articles">
-            <SortArticles
-                searchParamsState={{ searchParams, setSearchParams }}
-            />
+            <SortArticles setSearchParams={setSearchParams} />
 
             {isLoading && <p>Loading...</p>}
             {error && <p>{error}</p>}
