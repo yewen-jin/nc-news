@@ -106,3 +106,8 @@
 .add-comment {
     background-color: var(--secondary-bg-color);
 }
+
+.sort-articles {
+    display: flex;
+    justify-content: flex-end;
+}
