@@ -3,18 +3,18 @@ import { UserContext } from "../context/User";
 import { postComment } from "../data/api";
 // import { useEffect } from "react";
 
-const AddComment = ({ article }) => {
+const AddComment = ({ article, commentList }) => {
     const username = useContext(UserContext);
+    const { comments, setComments } = commentList;
     // console.log("adding comment");
     // console.log(article.article_id, username);
 
     const submitComment = (formData) => {
-        // e.preventDefault();
-        console.log(formData);
         const body = formData.get("body");
         postComment(article.article_id, username, body)
-            .then((result) => {
-                console.log(result);
+            .then(({ comment }) => {
+                console.log(comment);
+                setComments([...comments, comment]);
             })
             .catch((err) => {
                 console.log(err);
@@ -24,7 +24,7 @@ const AddComment = ({ article }) => {
 
     return (
         <section className="add-comment">
-            <p>Add comment here</p>
+            {/* <p>Add comment here</p>*/}
             <form action={submitComment}>
                 <label htmlFor="comment-body">Add Your Comments:</label>
                 <input type="text" id="comment-body" name="body"></input>
@@ -33,4 +33,5 @@ const AddComment = ({ article }) => {
         </section>
     );
 };
+
 export default AddComment;

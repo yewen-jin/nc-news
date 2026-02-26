@@ -12,6 +12,7 @@ const ArticlePage = () => {
     const [article, setArticle] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isAddCommentOn, setIsAddCommentOn] = useState(false);
+    const [comments, setComments] = useState([]);
     console.log(isAddCommentOn);
 
     useEffect(() => {
@@ -48,9 +49,18 @@ const ArticlePage = () => {
                 />
             )}
             {isAddCommentOn && (
-                <AddComment article={article} isAddCommentOn={isAddCommentOn} />
+                <AddComment
+                    article={article}
+                    isAddCommentOn={isAddCommentOn}
+                    commentList={{ comments, setComments }}
+                />
             )}
-            {article && <Comments article={article} />}
+            {article && (
+                <Comments
+                    article={article}
+                    commentList={{ comments, setComments }}
+                />
+            )}
         </>
     );
 };

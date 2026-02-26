@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { getCommentsByArticle } from "../data/api";
 import CommentCard from "./CommentCard";
 
-const Comments = ({ article }) => {
+const Comments = ({ article, commentList }) => {
     const { article_id } = article;
-    const [comments, setComments] = useState([]);
+    const { comments, setComments } = commentList;
 
     useEffect(() => {
         getCommentsByArticle(article_id).then(({ comments }) => {
