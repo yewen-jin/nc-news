@@ -4,6 +4,7 @@ import { postComment } from "../data/api";
 // import { useEffect } from "react";
 
 const AddComment = ({ article, commentList }) => {
+    console.log("add comment activated");
     const username = useContext(UserContext);
     const { comments, setComments } = commentList;
     // console.log("adding comment");
@@ -14,7 +15,7 @@ const AddComment = ({ article, commentList }) => {
         postComment(article.article_id, username, body)
             .then(({ comment }) => {
                 console.log(comment);
-                setComments([...comments, comment]);
+                setComments([comment, ...comments]);
             })
             .catch((err) => {
                 console.log(err);

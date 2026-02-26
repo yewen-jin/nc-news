@@ -2,7 +2,8 @@ import CommentsControl from "./CommentsControl";
 import Voting from "./Voting";
 
 const Interactions = ({ type, article, commentState, comment }) => {
-    console.log(article);
+    // console.log(article);
+    console.log("interaction activated");
     if (type === "articles") {
         return (
             <section className="interactions-bar">
