@@ -1,8 +1,30 @@
-const SortArticles = ({ setSearchParams }) => {
-    console.log(setSearchParams);
-    // console.log("sort articles: ", articleData);
-    // const { data, setData } = articleData;
-    // console.log(data, setData);
-    return <></>;
+const SortArticles = ({ searchParamsState }) => {
+    const { searchParams, setSearchParams } = searchParamsState;
+    return (
+        <>
+            <button
+                onClick={() => {
+                    setSearchParams((searchParams) => {
+                        searchParams.set("order", "asc");
+                        return searchParams;
+                    });
+                }}
+            >
+                Ascend
+            </button>{" "}
+            <button
+                onClick={() => {
+                    setSearchParams((searchParams) => {
+                        searchParams.set("order", "desc");
+                        return searchParams;
+                    });
+                }}
+            >
+                Descend
+            </button>{" "}
+            <button>order</button>{" "}
+        </>
+    );
 };
+
 export default SortArticles;

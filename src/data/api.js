@@ -36,15 +36,14 @@ export async function getUser(username) {
         });
 }
 
-export async function getArticles({
-    topic = null,
-    order = "desc",
-    sort_by = "created_at",
-}) {
+export async function getArticles({ topic = null, order, sort_by }) {
+    if (!order) order = "desc";
+    if (!sort_by) sort_by = "created_at";
+
     const url =
         !topic && !order && !sort_by
             ? host + "/api/articles"
-            : topic !== null
+            : topic
               ? host +
                 "/api/articles?topic=" +
                 topic +

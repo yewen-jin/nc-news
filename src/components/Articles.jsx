@@ -6,18 +6,25 @@ import SortArticles from "./SortArticles";
 
 const Articles = ({ topic }) => {
     const [searchParams, setSearchParams] = useSearchParams();
-    console.log(searchParams);
 
     const { data, error, isLoading } = useLoadData(
         getArticles,
-        [],
-        [{ topic, order: "asc", sort_by: "comment_count" }],
+        [searchParams],
+        [
+            {
+                topic,
+                order: searchParams.get("order"),
+                sort_by: searchParams.get("sort_by"),
+            },
+        ],
     );
-    // console.log(data, "<< after use loadData");
 
     return (
         <section className="articles">
-            <SortArticles setSearchParams={setSearchParams} />
+            <SortArticles
+                searchParamsState={{ searchParams, setSearchParams }}
+            />
+
             {isLoading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             {data !== null &&
