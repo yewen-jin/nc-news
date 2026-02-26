@@ -1,33 +1,18 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getArticles } from "../data/api";
+import useLoadData from "../hooks/useLoadData";
 import ArticleCard from "./ArticleCard";
 
 const Articles = () => {
-    const [articles, setArticles] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        console.log("loading articles");
-        setIsLoading(true);
-        getArticles()
-            .then(({ articles }) => {
-                // console.log(articles);
-                setArticles(articles);
-            })
-            .catch((err) => {
-                console.log("error message: ", err);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-    }, []);
+    const { data, error, isLoading } = useLoadData(getArticles, []);
+    console.log(data, "<< after use loadData");
 
     return (
         <section className="articles">
             {isLoading && <p>Loading...</p>}
-            {articles.length !== 0 &&
-                articles.map((article) => {
+            {error && <p>{error}</p>}
+            {data !== null &&
+                data.articles.map((article) => {
                     return (
                         <Link
                             key={"article-" + article.article_id}
