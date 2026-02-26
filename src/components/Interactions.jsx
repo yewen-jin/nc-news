@@ -1,4 +1,5 @@
 import CommentsControl from "./CommentsControl";
+import DeleteComment from "./DeleteComment";
 import Voting from "./Voting";
 
 const Interactions = ({ type, article, commentState, comment, isSelf }) => {
@@ -20,7 +21,7 @@ const Interactions = ({ type, article, commentState, comment, isSelf }) => {
             <section className="interactions-bar">
                 {console.log("render comments interactions")}
                 <Voting type={type} item={comment} />
-                {isSelf && <p>render trash icon</p>}
+                {isSelf && <DeleteComment comment={comment} />}
             </section>
         );
     }

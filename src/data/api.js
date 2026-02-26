@@ -112,7 +112,8 @@ export async function deleteComment(commentId) {
         // },
     })
         .then((response) => {
-            return response.json();
+            console.log(response);
+            return response.status;
         })
         .catch((error) => {
             console.log("Delete Error from: ", url, error.message);
