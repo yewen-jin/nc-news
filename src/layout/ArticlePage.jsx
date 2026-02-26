@@ -14,23 +14,6 @@ const ArticlePage = () => {
     const [isAddCommentOn, setIsAddCommentOn] = useState(false);
     const [comments, setComments] = useState([]);
 
-    // const [article, setArticle] = useState(null);
-    // const [isLoading, setIsLoading] = useState(false);
-    // useEffect(() => {
-    //     console.log("loading article...");
-    //     setIsLoading(true);
-    //     getArticleById(articleId)
-    //         .then(({ article }) => {
-    //             setArticle(article);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-    //         .finally(() => {
-    //             setIsLoading(false);
-    //         });
-    // }, [articleId]);
-    //
     const { data, error, isLoading } = useLoadData(
         getArticleById,
         [articleId],
