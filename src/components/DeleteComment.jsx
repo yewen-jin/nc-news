@@ -5,7 +5,6 @@ const DeleteComment = ({ comment, commentList }) => {
     return (
         <button
             onClick={() => {
-                // a new array of comments, with the deleted one removed
                 setComments(
                     comments.filter(
                         (item) => item.comment_id !== comment.comment_id,
