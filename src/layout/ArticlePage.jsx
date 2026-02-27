@@ -37,7 +37,7 @@ const ArticlePage = () => {
             {error && (
                 <section className="error-message">
                     {console.log(errorCat)}
-                    <AsciiAnimation frames={errorCat} />
+                    <AsciiAnimation frames={errorCat} speed={500} />
                     {/* <pre>{`
          #################################
         #                               #
