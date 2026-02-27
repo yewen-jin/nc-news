@@ -7,6 +7,7 @@ import User from "./layout/User";
 import ArticlePage from "./layout/ArticlePage";
 import ArticlesLayout from "./layout/ArticlesLayout";
 import ArticlesByTopic from "./layout/ArticlesByTopic";
+import PathNotFound from "./layout/PathNotFound";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/articles" element={<ArticlesLayout />} />
                 <Route path="/articles/:article_id" element={<ArticlePage />} />
                 <Route path="/users/:username" element={<User />} />
+                <Route path="*" element={<PathNotFound />}></Route>
             </Routes>
         </>
     );
