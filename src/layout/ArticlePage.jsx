@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { getArticleById } from "../data/api";
+import { errorCat } from "../data/ascii";
 import NavBar from "../components/NavBar";
 import ArticleDisplay from "../components/ArticleDisplay";
 import Interactions from "../components/Interactions";
 import Comments from "../components/Comments";
 import AddComment from "../components/AddComment";
+import AsciiAnimation from "../components/AsciiAnimation";
 import useLoadData from "../hooks/useLoadData";
 
 const ArticlePage = () => {
@@ -34,7 +36,9 @@ const ArticlePage = () => {
             )}
             {error && (
                 <section className="error-message">
-                    <pre>{`
+                    {console.log(errorCat)}
+                    <AsciiAnimation frames={errorCat} />
+                    {/* <pre>{`
          #################################
         #                               #
         #          404                  #
@@ -50,7 +54,7 @@ const ArticlePage = () => {
                           ={ - }=
                             |_|
 
-                            `}</pre>
+                            `}</pre>*/}
                 </section>
             )}
 
