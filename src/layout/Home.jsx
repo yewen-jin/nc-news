@@ -4,7 +4,7 @@ import Articles from "../components/Articles";
 import Login from "../components/Login";
 
 const Home = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     return (
         <>
             <NavBar destination={["/articles", "/topics"]}>

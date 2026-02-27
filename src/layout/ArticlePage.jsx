@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { getArticleById } from "../data/api";
 import { makeErrorCat } from "../data/ascii";
@@ -12,7 +12,7 @@ import useLoadData from "../hooks/useLoadData";
 
 const ArticlePage = () => {
     const articleId = useParams().article_id;
-    const errorCat = makeErrorCat("404", "article not found!");
+    const errorCat = makeErrorCat("404", "Article not found!");
 
     const [isAddCommentOn, setIsAddCommentOn] = useState(false);
     const [comments, setComments] = useState([]);
@@ -39,6 +39,7 @@ const ArticlePage = () => {
                 <section className="error-message">
                     {console.log(errorCat)}
                     <AsciiAnimation frames={errorCat} speed={500} />
+                    <Link to="/">return to home page</Link>
                     {/* <pre>{`
          #################################
         #                               #
