@@ -40,23 +40,6 @@ const ArticlePage = () => {
                     {console.log(errorCat)}
                     <AsciiAnimation frames={errorCat} speed={500} />
                     <Link to="/">return to home page</Link>
-                    {/* <pre>{`
-         #################################
-        #                               #
-        #          404                  #
-         #      article not found!       #
-        #                               #
-       #################################
-                              ####
-                             ######
-                              ####
-
-                           ^ _ ^
-                          ( * * )
-                          ={ - }=
-                            |_|
-
-                            `}</pre>*/}
                 </section>
             )}
 
