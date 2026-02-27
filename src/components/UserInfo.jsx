@@ -12,7 +12,7 @@ const UserInfo = ({ username }) => {
             .catch((err) => {
                 console.log("failed to fetch user: ", err);
             });
-    }, []);
+    }, [username]);
 
     return (
         <div className="user-info">

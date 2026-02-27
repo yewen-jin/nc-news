@@ -2,7 +2,7 @@
     --main-bg-color: orange;
     --secondary-bg-color: slategray;
     --header-bg-color: darkolivegreen;
-    --active-bt-color: slategray;
+    --active-bt-color: pink;
     margin: 0px;
     padding: 0px;
     font-family: monospace;
@@ -137,4 +137,10 @@ button.interaction-boxes:hover {
 .sort-articles {
     display: flex;
     justify-content: flex-end;
+}
+
+.user-card {
+    margin: 10px;
+    background-color: var(--secondary-bg-color);
+    border: dotted 3px darkslategray;
 }

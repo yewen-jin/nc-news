@@ -10,6 +10,16 @@ export async function getTopics() {
     });
 }
 
+export async function getAllUsers() {
+    const url = host + "/api/users";
+    return fetch(url).then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error, Status: ${response.status}`);
+        }
+        return response.json();
+    });
+}
+
 export async function getUser(username) {
     const url = host + "/api/users/" + username;
     return fetch(url).then((response) => {
