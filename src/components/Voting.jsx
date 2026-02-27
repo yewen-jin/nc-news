@@ -15,15 +15,15 @@ const Voting = (props) => {
             : type === "comments"
               ? item.comment_id
               : null;
-    // console.log(type, id, voteChange);
 
     return (
         <section className="interaction">
             <button
-                className="interaction-boxes"
+                className={`interaction-boxes ${voteChange === -1 ? "active-button" : ""}`}
                 onClick={() => {
                     if (voteChange === 0) {
                         setVoteChange(-1);
+                        //should use debounce here to prevent spam clicking
                         changeVote(type, id, -1);
                     } else if (voteChange === -1) {
                         setVoteChange(0);
@@ -44,7 +44,7 @@ const Voting = (props) => {
                 <p> {votes + voteChange}</p>
             </div>
             <button
-                className="interaction-boxes"
+                className={`interaction-boxes ${voteChange === 1 ? "active-button" : ""}`}
                 onClick={() => {
                     if (voteChange === 0) {
                         setVoteChange(1);

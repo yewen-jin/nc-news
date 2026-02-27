@@ -30,6 +30,8 @@ const AddComment = ({ article, commentState, commentList }) => {
                     name="body"
                     rows="4"
                     cols="40"
+                    required
+                    // add minimum and maximum char count
                 ></textarea>
                 <input type="submit"></input>
             </form>

@@ -7,7 +7,7 @@ const CommentsControl = ({ article, commentState }) => {
         <>
             <section className="interaction">
                 <button
-                    className="interaction-boxes"
+                    className={`interaction-boxes ${isAddCommentOn ? "active-button" : ""}`}
                     onClick={() => {
                         setIsAddCommentOn(!isAddCommentOn);
                     }}

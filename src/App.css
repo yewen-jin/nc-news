@@ -2,6 +2,7 @@
     --main-bg-color: orange;
     --secondary-bg-color: slategray;
     --header-bg-color: darkolivegreen;
+    --active-bt-color: slategray;
     margin: 0px;
     padding: 0px;
     font-family: monospace;
@@ -69,7 +70,6 @@
 }
 
 .interactions-bar {
-    margin: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,18 +78,34 @@
 .interaction {
     display: flex;
     flex-direction: row;
-    border: dotted 3px darkslategray;
+    border: dotted 1px darkslategray;
 }
 
 .interaction-boxes {
-    width: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.interaction-boxes {
+    background-color: white;
+    border-radius: 50%;
+}
+
+button.interaction-boxes:hover {
+    background-color: var(--active-bt-color);
+    border-radius: 50%;
+}
+
+.active-button {
+    background-color: var(--active-bt-color);
+}
+
 .interaction-icons {
     width: 30px;
+    border-radius: 50%;
 }
 
 .comment-section {
