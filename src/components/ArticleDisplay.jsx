@@ -1,10 +1,9 @@
 import { formatDate, formatTime } from "../data/utils";
 const ArticleDisplay = ({ article }) => {
-    // console.log(article);
     const date = formatDate(article.created_at);
     const time = formatTime(article.created_at);
     return (
-        <section className="article">
+        <section>
             <h3>{article.title}</h3>
             <div className="article-details">
                 <p>{"arthor: " + article.author}</p>

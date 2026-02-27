@@ -22,9 +22,15 @@ const AddComment = ({ article, commentState, commentList }) => {
 
     return (
         <section className="add-comment">
-            <form action={submitComment}>
+            <form className="comment-form" action={submitComment}>
                 <label htmlFor="comment-body">Add Your Comments:</label>
-                <input type="text" id="comment-body" name="body"></input>
+                <textarea
+                    type="text"
+                    id="comment-body"
+                    name="body"
+                    rows="4"
+                    cols="40"
+                ></textarea>
                 <input type="submit"></input>
             </form>
         </section>

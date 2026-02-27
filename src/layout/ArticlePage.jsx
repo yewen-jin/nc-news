@@ -58,15 +58,15 @@ const ArticlePage = () => {
                 </section>
             )}
 
-            {console.log(error, "error message", typeof error)}
-            {console.log(data, "data")}
-            {data !== null && <ArticleDisplay article={data.article} />}
             {data !== null && (
-                <Interactions
-                    type="articles"
-                    article={data.article}
-                    commentState={{ isAddCommentOn, setIsAddCommentOn }}
-                />
+                <section className="article">
+                    <ArticleDisplay article={data.article} />
+                    <Interactions
+                        type="articles"
+                        article={data.article}
+                        commentState={{ isAddCommentOn, setIsAddCommentOn }}
+                    />
+                </section>
             )}
             {isAddCommentOn && (
                 <AddComment
