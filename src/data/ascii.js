@@ -3,9 +3,9 @@ export function makeErrorCat(errCode, errMsg) {
     errorCat.push(`
          #################################
         #                               #
-        #          ${errCode}                  #
-       #      ${errMsg}       #
-        #                               #
+       #          ${errCode}                  #
+        #      ${errMsg}       #
+       #                               #
        #################################
                               ####
                              ######
@@ -20,9 +20,9 @@ export function makeErrorCat(errCode, errMsg) {
     errorCat.push(`
          #################################
         #                               #
-        #          ${errCode}                  #
-       #      ${errMsg}_      #
-        #                               #
+       #          ${errCode}                  #
+        #      ${errMsg}_      #
+       #                               #
        #################################
                               ####
                              ######
