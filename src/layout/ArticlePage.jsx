@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { getArticleById } from "../data/api";
-import { errorCat } from "../data/ascii";
+import { makeErrorCat } from "../data/ascii";
 import NavBar from "../components/NavBar";
 import ArticleDisplay from "../components/ArticleDisplay";
 import Interactions from "../components/Interactions";
@@ -12,6 +12,7 @@ import useLoadData from "../hooks/useLoadData";
 
 const ArticlePage = () => {
     const articleId = useParams().article_id;
+    const errorCat = makeErrorCat("404", "article not found!");
 
     const [isAddCommentOn, setIsAddCommentOn] = useState(false);
     const [comments, setComments] = useState([]);

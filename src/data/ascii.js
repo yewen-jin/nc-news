@@ -1,10 +1,10 @@
-const errorCat = [];
-
-errorCat.push(`
+export function makeErrorCat(errCode, errMsg) {
+    const errorCat = [];
+    errorCat.push(`
          #################################
         #                               #
-        #          404                  #
-         #      article not found!       #
+        #          ${errCode}                  #
+       #      ${errMsg}       #
         #                               #
        #################################
                               ####
@@ -17,11 +17,11 @@ errorCat.push(`
                             |_|
 
                             `);
-errorCat.push(`
+    errorCat.push(`
          #################################
         #                               #
-        #          404                  #
-         #      article not found!_      #
+        #          ${errCode}                  #
+       #      ${errMsg}_      #
         #                               #
        #################################
                               ####
@@ -34,5 +34,6 @@ errorCat.push(`
                             |_|
 
                             `);
-// console.log(errorCat, "errorCat");
-export { errorCat };
+    // console.log(errorCat, "errorCat");
+    return errorCat;
+}
