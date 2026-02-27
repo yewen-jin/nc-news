@@ -92,11 +92,13 @@
 .interaction-boxes {
     background-color: white;
     border-radius: 50%;
+    margin: 0 2px;
 }
 
 button.interaction-boxes:hover {
-    background-color: var(--active-bt-color);
-    border-radius: 50%;
+    /*background-color: var(--active-bt-color);*/
+    scale: 1.1;
+    transition: 0.2s;
 }
 
 .active-button {
