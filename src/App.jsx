@@ -9,7 +9,7 @@ import ArticlesLayout from "./layout/ArticlesLayout";
 import ArticlesByTopic from "./layout/ArticlesByTopic";
 import PathNotFound from "./layout/PathNotFound";
 import { useContext, useState } from "react";
-import { UserContext } from "./context/User";
+import { UserContext } from "./context/CurrentUser";
 
 function App() {
     const username = useContext(UserContext);

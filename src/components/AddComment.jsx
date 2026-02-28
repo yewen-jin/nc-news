@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../context/User";
+import { UserContext } from "../context/CurrentUser";
 import { postComment } from "../data/api";
 
 const AddComment = ({ article, commentState, commentList }) => {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "../context/User";
+import { UserContext } from "../context/CurrentUser";
 
 const UserCard = ({ user }) => {
     const currentUser = useContext(UserContext);
