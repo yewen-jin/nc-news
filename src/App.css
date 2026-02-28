@@ -96,11 +96,22 @@
 }
 
 button.interaction-boxes:hover {
-    /*background-color: var(--active-bt-color);*/
-    scale: 1.1;
+    animation-name: pop;
+    animation-duration: 0.3s;
     transition: 0.2s;
 }
 
+@keyframes pop {
+    0% {
+        scale: 1;
+    }
+    75% {
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+    }
+}
 .active-button {
     background-color: var(--active-bt-color);
 }
