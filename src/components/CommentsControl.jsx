@@ -1,5 +1,4 @@
 import commentsIcon from "../assets/comments.svg";
-// import { useState, useEffect } from "react";
 
 const CommentsControl = ({ article, commentState }) => {
     const { isAddCommentOn, setIsAddCommentOn } = commentState;

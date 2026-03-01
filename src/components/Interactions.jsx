@@ -13,7 +13,6 @@ const Interactions = ({
     if (type === "articles") {
         return (
             <section className="interactions-bar">
-                {/* {console.log("render articles interactions")}*/}
                 <Voting type={type} item={article} />
                 <CommentsControl
                     article={article}

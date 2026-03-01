@@ -36,7 +36,12 @@ const Articles = ({ topic }) => {
             )}
             {data !== null &&
                 data.articles.map((article) => {
-                    return <ArticleCard article={article} />;
+                    return (
+                        <ArticleCard
+                            key={"article-" + article.article_id}
+                            article={article}
+                        />
+                    );
                 })}
         </section>
     );

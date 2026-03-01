@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { postComment } from "../data/api";
+import { Link } from "react-router-dom";
 
 const AddComment = ({ article, commentState, commentList }) => {
-    const username = useContext(UserContext).currentUser;
-    console.log(username);
+    const { isLoggedIn, currentUser } = useContext(UserContext);
+    const username = currentUser;
     const { isAddCommentOn, setIsAddCommentOn } = commentState;
     const { comments, setComments } = commentList;
 
@@ -23,19 +24,24 @@ const AddComment = ({ article, commentState, commentList }) => {
 
     return (
         <section className="add-comment">
-            <form className="comment-form" action={submitComment}>
-                <label htmlFor="comment-body">Add Your Comments:</label>
-                <textarea
-                    type="text"
-                    id="comment-body"
-                    name="body"
-                    rows="4"
-                    cols="40"
-                    required
-                    // add minimum and maximum char count
-                ></textarea>
-                <input type="submit"></input>
-            </form>
+            {isLoggedIn && (
+                <form className="comment-form" action={submitComment}>
+                    <label htmlFor="comment-body">Add Your Comments:</label>
+                    <input
+                        type="text"
+                        id="comment-body"
+                        name="body"
+                        required
+                        // add minimum and maximum char count
+                    ></input>
+                    <input type="submit"></input>
+                </form>
+            )}
+            {!isLoggedIn && (
+                <p>
+                    Please <Link to="/login">log in</Link> to comment
+                </p>
+            )}
         </section>
     );
 };
