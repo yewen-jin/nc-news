@@ -24,9 +24,9 @@ const UserInfo = ({ username }) => {
                         alt="user avatar"
                         src={user.avatar_url}
                     />
-                    <p>{username}</p>
                 </Link>
             )}
+            {user && <p>{username}</p>}
         </div>
     );
 };

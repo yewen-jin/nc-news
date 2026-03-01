@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { Link } from "react-router-dom";
 
 const UserCard = ({ user }) => {
     const { setCurrentUser, setIsLoggedIn } = useContext(UserContext);
@@ -18,14 +19,15 @@ const UserCard = ({ user }) => {
                 src={user.avatar_url}
                 alt="user avatar"
             />
-            <button
-                to="/"
-                onClick={() => {
-                    loginUser(user.username);
-                }}
-            >
-                Log in
-            </button>
+            <Link to="/">
+                <button
+                    onClick={() => {
+                        loginUser(user.username);
+                    }}
+                >
+                    Log in
+                </button>
+            </Link>
         </section>
     );
 };

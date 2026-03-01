@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getUser } from "../data/api";
 import useLoadData from "../hooks/useLoadData";
 import { useContext } from "react";
@@ -26,14 +26,16 @@ const User = () => {
                         alt="user avatar"
                     />
                     {currentUser !== null && username === currentUser && (
-                        <button
-                            onClick={() => {
-                                setCurrentUser(null);
-                                setIsLoggedIn(false);
-                            }}
-                        >
-                            Sign out
-                        </button>
+                        <Link to="/">
+                            <button
+                                onClick={() => {
+                                    setCurrentUser(null);
+                                    setIsLoggedIn(false);
+                                }}
+                            >
+                                Sign out
+                            </button>
+                        </Link>
                     )}
                 </section>
             )}
