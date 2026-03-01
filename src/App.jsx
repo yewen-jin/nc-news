@@ -9,27 +9,17 @@ import ArticlesLayout from "./layout/ArticlesLayout";
 import ArticlesByTopic from "./layout/ArticlesByTopic";
 import PathNotFound from "./layout/PathNotFound";
 import { useContext, useState } from "react";
-import { UserContext } from "./context/CurrentUser";
+import { UserContext, UserProvider } from "./context/CurrentUser";
 
 function App() {
     const username = useContext(UserContext);
-    const [currentUser, setCurrentUser] = useState(username);
+    // const [currentUser, setCurrentUser] = useState(username);
     return (
         <>
-            <UserContext value={currentUser}>
+            <UserProvider>
                 <Header />
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <Home
-                            // currentUserState={{
-                            // currentUser,
-                            // setCurrentUser,
-                            // }}
-                            />
-                        }
-                    />
+                    <Route path="/" element={<Home />} />
                     <Route path="/topics" element={<Topics />} />
                     <Route path="/topics/:slug" element={<ArticlesByTopic />} />
                     <Route path="/articles" element={<ArticlesLayout />} />
@@ -40,7 +30,7 @@ function App() {
                     <Route path="/users/:username" element={<User />} />
                     <Route path="*" element={<PathNotFound />}></Route>
                 </Routes>
-            </UserContext>
+            </UserProvider>
         </>
     );
 }

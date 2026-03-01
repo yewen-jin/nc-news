@@ -1,29 +1,31 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/CurrentUser";
 
 const UserCard = ({ user }) => {
-    const currentUser = useContext(UserContext);
-    console.log(currentUser);
-    // const loginUser = (username) => {
-    //     setCurrentUser(username);
-    // };
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+
+    const loginUser = (username) => {
+        setCurrentUser(username);
+    };
+
     return (
         <section className="user-card">
-            <Link
+            <p>{user.username}</p>
+            <p>{user.name}</p>
+            <img
+                className="user-avatar"
+                src={user.avatar_url}
+                alt="user avatar"
+            />
+            <button
                 to="/"
                 onClick={() => {
                     loginUser(user.username);
                 }}
             >
-                <p>{user.username}</p>
-                <p>{user.name}</p>
-                <img
-                    className="user-avatar"
-                    src={user.avatar_url}
-                    alt="user avatar"
-                />
-            </Link>
+                Log in
+            </button>
         </section>
     );
 };

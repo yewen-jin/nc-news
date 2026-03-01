@@ -47,17 +47,12 @@ export async function getArticles({ topic = null, order, sort_by }) {
                 order
               : host + "/api/articles?sort_by=" + sort_by + "&order=" + order;
 
-    return fetch(url)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error, Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((body) => {
-            // console.log("fetched body:", body);
-            return body;
-        });
+    return fetch(url).then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error, Status: ${response.status}`);
+        }
+        return response.json();
+    });
 }
 
 export async function getArticleById(articleId) {

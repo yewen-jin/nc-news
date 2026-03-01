@@ -1,5 +1,12 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const UserContext = createContext("tickle122");
+export const UserContext = createContext(null);
 
-// export const UserProvider =
+export const UserProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(null);
+    return (
+        <UserContext value={{ currentUser, setCurrentUser }}>
+            {children}
+        </UserContext>
+    );
+};
