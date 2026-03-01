@@ -3,7 +3,8 @@ import { UserContext } from "../context/CurrentUser";
 import { postComment } from "../data/api";
 
 const AddComment = ({ article, commentState, commentList }) => {
-    const username = useContext(UserContext);
+    const username = useContext(UserContext).currentUser;
+    console.log(username);
     const { isAddCommentOn, setIsAddCommentOn } = commentState;
     const { comments, setComments } = commentList;
 

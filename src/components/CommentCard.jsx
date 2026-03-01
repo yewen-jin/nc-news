@@ -6,7 +6,7 @@ import { UserContext } from "../context/CurrentUser";
 const CommentCard = ({ comment, commentList }) => {
     const date = formatDate(comment.created_at);
     const time = formatTime(comment.created_at);
-    const username = useContext(UserContext);
+    const username = useContext(UserContext).currentUser;
 
     return (
         <section className="comment-card">
