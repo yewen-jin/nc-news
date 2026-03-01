@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { getArticleById } from "../data/api";
-import { makeErrorCat } from "../data/ascii";
+import { makeErrorCat, makeLoadingCat } from "../data/ascii";
 import NavBar from "../components/NavBar";
 import ArticleDisplay from "../components/ArticleDisplay";
 import Interactions from "../components/Interactions";
@@ -13,6 +13,7 @@ import useLoadData from "../hooks/useLoadData";
 const ArticlePage = () => {
     const articleId = useParams().article_id;
     const errorCat = makeErrorCat("404", "Article not found!");
+    const loadingCat = makeLoadingCat();
 
     const [isAddCommentOn, setIsAddCommentOn] = useState(false);
     const [comments, setComments] = useState([]);
@@ -33,6 +34,7 @@ const ArticlePage = () => {
             {isLoading && (
                 <section className="loading-message">
                     <p>Loading Article...</p>
+                    <AsciiAnimation frames={loadingCat} speed={500} />
                 </section>
             )}
             {error && (

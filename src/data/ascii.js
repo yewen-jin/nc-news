@@ -37,3 +37,24 @@ export function makeErrorCat(errCode, errMsg) {
     // console.log(errorCat, "errorCat");
     return errorCat;
 }
+
+export function makeLoadingCat() {
+    const loadingCat = [];
+    loadingCat.push(`
+      Loading..
+            /\\_/\\
+           ( o.o )
+           =( v )=
+           /|   |\\
+          \` '   ' \`
+        `);
+    loadingCat.push(`
+      Loading...
+            /\\_/\\
+           ( -.- )
+           =( v )=
+            |\\ /|
+            ' \` '
+        `);
+    return loadingCat;
+}
