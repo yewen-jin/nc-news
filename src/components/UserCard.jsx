@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "../context/CurrentUser";
+import { UserContext } from "../context/UserContext";
 
 const UserCard = ({ user }) => {
     const { setCurrentUser, setIsLoggedIn } = useContext(UserContext);

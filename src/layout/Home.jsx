@@ -1,9 +1,8 @@
-import { useState } from "react";
 import NavBar from "../components/NavBar";
 import Articles from "../components/Articles";
 import Login from "../components/Login";
 import { useContext } from "react";
-import { UserContext } from "../context/CurrentUser";
+import { UserContext } from "../context/UserContext";
 
 const Home = () => {
     const { isLoggedIn } = useContext(UserContext);

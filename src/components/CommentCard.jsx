@@ -1,7 +1,7 @@
 import Interactions from "../components/Interactions";
 import { formatDate, formatTime } from "../data/utils";
 import { useContext } from "react";
-import { UserContext } from "../context/CurrentUser";
+import { UserContext } from "../context/UserContext";
 
 const CommentCard = ({ comment, commentList }) => {
     const date = formatDate(comment.created_at);

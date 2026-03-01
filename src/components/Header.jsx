@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { UserContext } from "../context/CurrentUser";
+import { UserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import UserInfo from "./UserInfo";
 
@@ -10,7 +10,7 @@ const Header = () => {
             <Link to="/">
                 <h1>NC NEWS </h1>
             </Link>
-            <UserInfo username={currentUser} />
+            {currentUser !== null && <UserInfo username={currentUser} />}
         </section>
     );
 };

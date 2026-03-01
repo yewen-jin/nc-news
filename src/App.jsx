@@ -8,7 +8,7 @@ import ArticlePage from "./layout/ArticlePage";
 import ArticlesLayout from "./layout/ArticlesLayout";
 import ArticlesByTopic from "./layout/ArticlesByTopic";
 import PathNotFound from "./layout/PathNotFound";
-import { UserProvider } from "./context/CurrentUser";
+import { UserProvider } from "./components/UserProvider";
 
 function App() {
     return (
