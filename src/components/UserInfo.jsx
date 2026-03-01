@@ -1,5 +1,6 @@
 import { getUser } from "../data/api";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const UserInfo = ({ username }) => {
     const [user, setUser] = useState(null);
@@ -17,13 +18,15 @@ const UserInfo = ({ username }) => {
     return (
         <div className="user-info">
             {user && (
-                <img
-                    className="user-avatar"
-                    alt="user avatar"
-                    src={user.avatar_url}
-                />
+                <Link to={"/users/" + user.username}>
+                    <img
+                        className="user-avatar"
+                        alt="user avatar"
+                        src={user.avatar_url}
+                    />
+                    <p>{username}</p>
+                </Link>
             )}
-            {user && <p>{username}</p>}
         </div>
     );
 };
