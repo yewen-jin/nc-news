@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <section className="header">
             <Link to="/">
-                <h1>NC NEWS </h1>
+                <h1>Forum</h1>
             </Link>
             {currentUser !== null && <UserInfo username={currentUser} />}
             {currentUser === null && (

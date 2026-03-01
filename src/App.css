@@ -64,9 +64,13 @@
 
 .article-details {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.article-details > p {
+    margin: 0px;
 }
 
 .interactions-bar {

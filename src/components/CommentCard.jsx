@@ -15,7 +15,7 @@ const CommentCard = ({ comment, commentList }) => {
             </p>
             <p className="text-body">{comment.body}</p>
             <p className="date-time">
-                Published: {date} {time}
+                {date} {time}
             </p>
             <Interactions
                 type="comments"

@@ -1,4 +1,6 @@
 import { formatDate, formatTime } from "../data/utils";
+import { Link } from "react-router-dom";
+
 const ArticleDisplay = ({ article }) => {
     const date = formatDate(article.created_at);
     const time = formatTime(article.created_at);
@@ -6,10 +8,20 @@ const ArticleDisplay = ({ article }) => {
         <section>
             <h3>{article.title}</h3>
             <div className="article-details">
-                <p>{"arthor: " + article.author}</p>
-                <p>{"topic: " + article.topic}</p>
+                <p>
+                    Author:
+                    <Link to={"/users/" + article.author}>
+                        <span>{article.author}</span>
+                    </Link>
+                </p>
+                <p>
+                    Topic:{" "}
+                    <Link to={"/topics/" + article.topic}>
+                        <span>{article.topic}</span>
+                    </Link>
+                </p>
+                <p>{"Published:" + date + " " + time}</p>
             </div>
-            <p>{"Published:" + date + " " + time}</p>
             <img
                 alt="article image"
                 src={article.article_img_url}
