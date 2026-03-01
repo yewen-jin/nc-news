@@ -11,6 +11,11 @@ const Header = () => {
                 <h1>NC NEWS </h1>
             </Link>
             {currentUser !== null && <UserInfo username={currentUser} />}
+            {currentUser === null && (
+                <Link to="/login">
+                    <p>Sign in</p>
+                </Link>
+            )}
         </section>
     );
 };

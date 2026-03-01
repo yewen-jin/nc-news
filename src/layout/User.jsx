@@ -1,4 +1,10 @@
+import UserCard from "../components/UserCard";
+
 const User = () => {
-    return <></>;
+    return (
+        <>
+            <UserCard />
+        </>
+    );
 };
 export default User;

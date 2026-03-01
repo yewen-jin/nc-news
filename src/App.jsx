@@ -5,6 +5,7 @@ import Home from "./layout/Home";
 import Topics from "./layout/Topics";
 import User from "./layout/User";
 import ArticlePage from "./layout/ArticlePage";
+import LoginPage from "./layout/LoginPage";
 import ArticlesLayout from "./layout/ArticlesLayout";
 import ArticlesByTopic from "./layout/ArticlesByTopic";
 import PathNotFound from "./layout/PathNotFound";
@@ -25,6 +26,7 @@ function App() {
                         element={<ArticlePage />}
                     />
                     <Route path="/users/:username" element={<User />} />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="*" element={<PathNotFound />}></Route>
                 </Routes>
             </UserProvider>
