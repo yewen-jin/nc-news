@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { getTopics } from "../data/api";
 import NavBar from "../components/NavBar";
 import useLoadData from "../hooks/useLoadData";
-import { getTopics } from "../data/api";
+import AsciiAnimation from "../components/AsciiAnimation";
+import { makeErrorCat, makeLoadingCat } from "../data/ascii";
 
 const Topics = () => {
     const { data, error, isLoading } = useLoadData(getTopics, []);
+    const errorCat = makeErrorCat("404", "  Topic not found!");
+    const loadingCat = makeLoadingCat();
 
     return (
         <>
@@ -13,8 +17,13 @@ const Topics = () => {
                 <p>Topics</p>
             </NavBar>
             <p>Topics:</p>
-            {isLoading && <p>Loading topics...</p>}
-            {error && <p>{error}</p>}
+            {isLoading && <AsciiAnimation frames={loadingCat} speed={500} />}
+            {error && (
+                <section className="error-message">
+                    <AsciiAnimation frames={errorCat} speed={500} />
+                    <Link to="/">return to home page</Link>
+                </section>
+            )}
             {data !== null &&
                 data.topics.map((topic) => {
                     return (

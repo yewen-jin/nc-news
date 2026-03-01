@@ -1,11 +1,15 @@
 import { Link, useSearchParams } from "react-router-dom";
+import { makeErrorCat, makeLoadingCat } from "../data/ascii";
 import { getArticles } from "../data/api";
 import useLoadData from "../hooks/useLoadData";
 import ArticleCard from "./ArticleCard";
 import SortArticles from "./SortArticles";
+import AsciiAnimation from "../components/AsciiAnimation";
 
 const Articles = ({ topic }) => {
     const [searchParams, setSearchParams] = useSearchParams();
+    const errorCat = makeErrorCat("404", "   Page not found!");
+    const loadingCat = makeLoadingCat();
 
     const { data, error, isLoading } = useLoadData(
         getArticles,
@@ -23,8 +27,13 @@ const Articles = ({ topic }) => {
         <section className="articles">
             <SortArticles setSearchParams={setSearchParams} />
 
-            {isLoading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
+            {isLoading && <AsciiAnimation frames={loadingCat} speed={500} />}
+            {error && (
+                <section className="error-message">
+                    <AsciiAnimation frames={errorCat} speed={500} />
+                    <Link to="/">return to home page</Link>
+                </section>
+            )}
             {data !== null &&
                 data.articles.map((article) => {
                     return (

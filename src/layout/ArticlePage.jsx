@@ -1,13 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { getArticleById } from "../data/api";
-import { makeErrorCat, makeLoadingCat } from "../data/ascii";
 import NavBar from "../components/NavBar";
 import ArticleDisplay from "../components/ArticleDisplay";
 import Interactions from "../components/Interactions";
 import Comments from "../components/Comments";
 import AddComment from "../components/AddComment";
 import AsciiAnimation from "../components/AsciiAnimation";
+import { makeErrorCat, makeLoadingCat } from "../data/ascii";
 import useLoadData from "../hooks/useLoadData";
 
 const ArticlePage = () => {
@@ -33,13 +33,11 @@ const ArticlePage = () => {
 
             {isLoading && (
                 <section className="loading-message">
-                    <p>Loading Article...</p>
                     <AsciiAnimation frames={loadingCat} speed={500} />
                 </section>
             )}
             {error && (
                 <section className="error-message">
-                    {console.log(errorCat)}
                     <AsciiAnimation frames={errorCat} speed={500} />
                     <Link to="/">return to home page</Link>
                 </section>
