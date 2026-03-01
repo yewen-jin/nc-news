@@ -19,11 +19,13 @@ const UserInfo = ({ username }) => {
         <div className="user-info">
             {user && (
                 <Link to={"/users/" + user.username}>
-                    <img
-                        className="user-avatar"
-                        alt="user avatar"
-                        src={user.avatar_url}
-                    />
+                    <div className="avatar-container">
+                        <img
+                            className="user-avatar"
+                            alt="user avatar"
+                            src={user.avatar_url}
+                        />
+                    </div>
                 </Link>
             )}
             {user && <p>{username}</p>}

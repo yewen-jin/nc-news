@@ -1,8 +1,10 @@
 #root {
     --main-bg-color: orange;
-    --secondary-bg-color: slategray;
-    --header-bg-color: darkolivegreen;
+    --secondary-bg-color: white;
+    --header-bg-color: #384b6b;
     --active-bt-color: pink;
+    --text-color-light: ghostwhite;
+    --text-color-dark: #0f1621;
     margin: 0px;
     padding: 0px;
     font-family: monospace;
@@ -12,21 +14,35 @@
 
 .header {
     background-color: var(--header-bg-color);
-    color: ghostwhite;
-    padding: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    border-radius: 30px;
+    color: var(--text-color-light);
+    /*padding: 10px;*/
+    height: 150px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: 10px;
+    /*/*position: sticky;*/
+    /*top: 0px;*/*/
 }
 
 .header > a {
     color: beige !important;
     text-decoration-line: none;
 }
-
-.user-avatar {
+/*.header*/
+.avatar-container {
     max-width: 80px;
     max-height: 80px;
+    border-radius: 50%;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    /*border-radius: 50%;*/
 }
 
 .nav-bar {
@@ -34,6 +50,8 @@
     padding: 10px;
     justify-content: space-around;
     background-color: var(--secondary-bg-color);
+    position: sticky;
+    top:0;
 }
 
 .nav-items {
