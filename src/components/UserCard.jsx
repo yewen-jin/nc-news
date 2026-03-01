@@ -3,10 +3,11 @@ import { useContext } from "react";
 import { UserContext } from "../context/CurrentUser";
 
 const UserCard = ({ user }) => {
-    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const { setCurrentUser, setIsLoggedIn } = useContext(UserContext);
 
     const loginUser = (username) => {
         setCurrentUser(username);
+        setIsLoggedIn(true);
     };
 
     return (

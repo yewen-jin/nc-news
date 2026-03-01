@@ -8,12 +8,9 @@ import ArticlePage from "./layout/ArticlePage";
 import ArticlesLayout from "./layout/ArticlesLayout";
 import ArticlesByTopic from "./layout/ArticlesByTopic";
 import PathNotFound from "./layout/PathNotFound";
-import { useContext, useState } from "react";
-import { UserContext, UserProvider } from "./context/CurrentUser";
+import { UserProvider } from "./context/CurrentUser";
 
 function App() {
-    const username = useContext(UserContext);
-    // const [currentUser, setCurrentUser] = useState(username);
     return (
         <>
             <UserProvider>
