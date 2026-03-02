@@ -7,29 +7,31 @@ const ArticleCard = ({ article }) => {
 
     return (
         <section className="article-card">
+            <Link to={"/topics/" + article.topic}>
+                <p className="article-card-topic">
+                    <span>{article.topic}</span>
+                </p>
+            </Link>
+
             <Link to={"/articles/" + article.article_id}>
-                <h3 className="text-title">{article.title}</h3>
+                <h3 className="article-card-text-title">{article.title}</h3>
                 <img
                     alt="article image"
                     src={article.article_img_url}
-                    className="article-img-preview"
+                    className="article-card-img-preview"
                 />
             </Link>
             <p>
-                Author:
                 <Link to={"/users/" + article.author}>
+                    <img className="avatar-s" />
                     <span>{article.author}</span>
                 </Link>
+                <span className="date-time">{" • " + date + " " + time}</span>
             </p>
-            <p>
-                Topic:{" "}
-                <Link to={"/topics/" + article.topic}>
-                    <span>{article.topic}</span>
-                </Link>
-            </p>
-            <p className="date-time">{"Published:" + date + " " + time}</p>
-            <p>{"Votes:" + article.votes}</p>
-            <p>{"Comments:" + article.comment_count}</p>
+            <div className="interaction-counts">
+                <p>{"Votes:" + article.votes}</p>
+                <p>{"Comments:" + article.comment_count}</p>
+            </div>
         </section>
     );
 };
