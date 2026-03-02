@@ -11,12 +11,13 @@ const CommentCard = ({ comment, commentList }) => {
     return (
         <section className="comment-card">
             <p className="text-title">
-                <strong>{comment.author}:</strong>
+                <Link to={"/users/" + comment.author}>
+                    <img className="avatar-s" />
+                    <span>{comment.author}</span>
+                </Link>
+                <span className="date-time">{" • " + date + " " + time}</span>
             </p>
             <p className="text-body">{comment.body}</p>
-            <p className="date-time">
-                {date} {time}
-            </p>
             <Interactions
                 type="comments"
                 comment={comment}

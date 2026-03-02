@@ -105,9 +105,13 @@ h1 {
 .article-img {
     max-width: -webkit-fill-available;
 }
-
+.article-topic {
+    font-size: 1.1rem;
+    font-style: italic;
+}
 .article {
     border: dotted 3px darkslategray;
+    border-radius: 30px;
     background-color: var(--main-bg-color);
     margin: 10px;
     padding: 10px;
@@ -121,7 +125,7 @@ h1 {
 }
 
 .article-details > p {
-    margin: 0px;
+    /*margin: 0px;*/
 }
 
 .interactions-bar {
@@ -177,12 +181,13 @@ button.interaction-boxes:hover {
 }
 
 .comment-section {
-    border: dotted 3px darkslategray;
+    /*border: dotted 3px darkslategray;*/
     margin: 10px;
 }
 
 .comment-card {
     border: dotted 3px darkslategray;
+    border-radius: 30px;
     background-color: var(--main-bg-color);
     padding: 10px;
 }

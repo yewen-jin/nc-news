@@ -6,21 +6,22 @@ const ArticleDisplay = ({ article }) => {
     const time = formatTime(article.created_at);
     return (
         <section>
+            <p className="article-topic">
+                <Link to={"/topics/" + article.topic}>
+                    <span>{article.topic}</span>
+                </Link>
+            </p>
             <h3>{article.title}</h3>
             <div className="article-details">
                 <p>
-                    Author:
                     <Link to={"/users/" + article.author}>
+                        <img className="avatar-s" />
                         <span>{article.author}</span>
                     </Link>
+                    <span className="date-time">
+                        {" • " + date + " " + time}
+                    </span>
                 </p>
-                <p>
-                    Topic:{" "}
-                    <Link to={"/topics/" + article.topic}>
-                        <span>{article.topic}</span>
-                    </Link>
-                </p>
-                <p>{"Published:" + date + " " + time}</p>
             </div>
             <img
                 alt="article image"

@@ -8,7 +8,7 @@ const ArticleCard = ({ article }) => {
     return (
         <section className="article-card">
             <Link to={"/topics/" + article.topic}>
-                <p className="article-card-topic">
+                <p className="article-topic">
                     <span>{article.topic}</span>
                 </p>
             </Link>
