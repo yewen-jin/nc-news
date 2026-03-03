@@ -13,8 +13,8 @@ const CommentCard = ({ comment, commentList }) => {
         <section className="comment-card">
             <p className="text-title">
                 <Link to={"/users/" + comment.author}>
-                    {/* <img className="avatar-s" />*/}
-                    {/* <span>{comment.author}</span>*/}
+                    <img className="avatar-s" />
+                    <span>{comment.author}</span>
                 </Link>
                 <span className="date-time">{" • " + date + " " + time}</span>
             </p>
