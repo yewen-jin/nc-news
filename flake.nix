@@ -13,7 +13,8 @@
         ];
 
         shellHook = ''
-          # Set up nix-ld for dynamically linked executables (fnm)
+          # Set up nix-ld for dynamically linked executables
+          # This allows fnm to work if you choose to use it with: eval "$(fnm env)"
           export NIX_LD=$(cat ${pkgs.stdenv.cc}/nix-support/dynamic-linker)
           export NIX_LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [
             pkgs.stdenv.cc.cc
@@ -21,11 +22,6 @@
             pkgs.zlib
             pkgs.libgcc
           ]}
-
-          # Initialize fnm if available
-          if command -v fnm &> /dev/null; then
-            eval "$(fnm env --use-on-cd)"
-          fi
         '';
       };
     };
