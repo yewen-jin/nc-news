@@ -21,6 +21,11 @@
             pkgs.zlib
             pkgs.libgcc
           ]}
+
+          # Initialize fnm if available
+          if command -v fnm &> /dev/null; then
+            eval "$(fnm env --use-on-cd)"
+          fi
         '';
       };
     };
